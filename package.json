@@ -1,0 +1,37 @@
+{
+  "name": "wnb",
+  "version": "0.0.1",
+  "description": "Calculate weight and balance of aircraft",
+  "productName": "Weight and balance",
+  "cordovaId": "net.celles.wnb",
+  "author": "scls19fr <s.celles@gmail.com>",
+  "private": true,
+  "scripts": {
+    "lint": "eslint --ext .js,.vue src",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@quasar/extras": "^1.0.0",
+    "js-yaml": "^3.13.1",
+    "point-in-polygon": "^1.0.1",
+    "quasar": "^1.0.0",
+    "vue-i18n": "^8.0.0"
+  },
+  "devDependencies": {
+    "@quasar/app": "^1.0.0",
+    "@vue/eslint-config-standard": "^4.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.10.0",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-vue": "^5.0.0",
+    "jest": "^25.1.0"
+  },
+  "engines": {
+    "node": ">= 8.9.0",
+    "npm": ">= 5.6.0",
+    "yarn": ">= 1.6.0"
+  },
+  "browserslist": [
+    "last 1 version, not dead, ie >= 11"
+  ]
+}
