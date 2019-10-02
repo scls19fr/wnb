@@ -12,6 +12,12 @@ yarn
 quasar dev
 ```
 
+or
+
+```bash
+npx quasar dev
+```
+
 ### Lint the files
 ```bash
 yarn run lint
