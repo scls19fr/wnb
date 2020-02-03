@@ -1,7 +1,7 @@
 const wnb = require('../src/wnb');
 
 test('load sample config', () => {
-    cfg = wnb.load('./data/f-bubk.yml');
+    cfg = wnb.load_config('./data/f-bubk.yml');
     console.log(cfg);
     expect(cfg.file_format_version).toBe('0.0.1');
 
@@ -33,4 +33,17 @@ test('load sample config', () => {
     expect(cfg.loads[1].lever_arm).toBe(0.993);
     expect(cfg.loads[1].mass).toStrictEqual({'default': 70, 'min': 0, 'max': 150, 'step': 1});
     expect(cfg.loads[1].comment).toBe('');
+});
+
+test('build settings', () => {
+    cfg = wnb.load_config('./data/f-bubk.yml');
+    settings = wnb.build_settings(cfg);
+    console.log(settings);
+    for(let i = 0; i < cfg.loads.length; i++) {
+        if (cfg.loads[i].hasOwnProperty('mass')) {
+            expect(settings.loads[i].mass).toBe(cfg.loads[i].mass.default);
+        } else if (cfg.loads[i].hasOwnProperty('volume')) {
+            expect(settings.loads[i].volume).toBe(cfg.loads[i].volume.default);
+        }
+    }
 });
