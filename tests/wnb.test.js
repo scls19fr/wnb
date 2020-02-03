@@ -16,11 +16,21 @@ test('load sample config', () => {
     expect(cfg.aircraft.comment).toBe('');
     expect(cfg.aircraft.constants.fuel_density).toBe(0.72);
 
+    expect(cfg.centrogram.length).toBe(5);
     for(let i = 0; i < cfg.centrogram.length; i++) {
         expect(cfg.centrogram[i].designation).toBe('Pt' + (i + 1));
     }
     expect(cfg.centrogram[0].designation).toBe('Pt1');
     expect(cfg.centrogram[0].mass).toBe(250);
     expect(cfg.centrogram[0].lever_arm).toBe(0.8);
-    
+
+    expect(cfg.loads.length).toBe(5);
+    expect(cfg.loads[0].designation).toBe('Empty aircraft');
+    expect(cfg.loads[0].lever_arm).toBe(0.862);
+    expect(cfg.loads[0].mass).toStrictEqual({'default': 520});
+    expect(cfg.loads[0].comment).toBe('');
+    expect(cfg.loads[1].designation).toBe('Pilot');
+    expect(cfg.loads[1].lever_arm).toBe(0.993);
+    expect(cfg.loads[1].mass).toStrictEqual({'default': 70, 'min': 0, 'max': 150, 'step': 1});
+    expect(cfg.loads[1].comment).toBe('');
 });
