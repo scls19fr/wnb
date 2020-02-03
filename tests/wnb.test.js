@@ -31,19 +31,28 @@ test('load sample config', () => {
     expect(cfg.loads[0].comment).toBe('');
     expect(cfg.loads[1].designation).toBe('Pilot');
     expect(cfg.loads[1].lever_arm).toBe(0.993);
-    expect(cfg.loads[1].mass).toStrictEqual({'default': 70, 'min': 0, 'max': 150, 'step': 1});
+    //expect(cfg.loads[1].mass).toStrictEqual({'default': 70, 'min': 0, 'max': 150, 'step': 1});
+    expect(cfg.loads[1].mass).toStrictEqual({'default': 77, 'min': 0, 'max': 150, 'step': 1});
     expect(cfg.loads[1].comment).toBe('');
 });
 
 test('build settings', () => {
     cfg = wnb.load_config('./data/f-bubk.yml');
     settings = wnb.build_settings(cfg);
-    console.log(settings);
     for(let i = 0; i < cfg.loads.length; i++) {
         if (cfg.loads[i].hasOwnProperty('mass')) {
-            expect(settings.loads[i].mass).toBe(cfg.loads[i].mass.default);
+            expect(settings.loads[i].mass.current_value).toBe(cfg.loads[i].mass.default);
         } else if (cfg.loads[i].hasOwnProperty('volume')) {
-            expect(settings.loads[i].volume).toBe(cfg.loads[i].volume.default);
+            expect(settings.loads[i].volume.current_value).toBe(cfg.loads[i].volume.default);
         }
     }
+});
+
+test('calculate center of gravity', () => {
+    cfg = wnb.load_config('./data/f-bubk.yml');
+    settings = wnb.build_settings(cfg);
+    G = wnb.calculate_cg(cfg, settings);
+    expect(G.mass).toBe(668.2);
+    expect(G.lever_arm).toBeCloseTo(0.907, precision = 3);
+    expect(G.moment).toBeCloseTo(606.375, precision = 3);
 });

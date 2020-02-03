@@ -37,7 +37,7 @@
     - designation: Pilot
       lever_arm: 0.993
       mass:
-        default: 70
+        default: 77
         min: 0
         max: 150
         step: 1
@@ -53,7 +53,7 @@
     - designation: Luggage
       lever_arm: 1.619
       mass:
-        default: 0
+        default: 10
         min: 0
         max: 54
         step: 0.1
@@ -61,7 +61,7 @@
     - designation: Fuel
       lever_arm: 1.07
       volume:
-        default: 30
+        default: 85
         min: 0
         max: 85
         step: 0.1
