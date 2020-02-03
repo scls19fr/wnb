@@ -2,6 +2,12 @@
 
 Calculate weight and balance of aircraft
 
+This is currently a work in progress...
+
+It's not usable.
+
+Just a sample project to try JS with Quasar Framework, unit tests with Jest, ...
+
 ## Install the dependencies
 ```bash
 yarn
@@ -30,3 +36,14 @@ quasar build
 
 ### Customize the configuration
 See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
+
+### Run unit tests
+```bash
+$ yarn run test
+```
+
+or 
+
+```bash
+$ yarn test
+```
