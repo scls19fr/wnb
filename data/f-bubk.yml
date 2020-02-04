@@ -10,8 +10,10 @@
       owner: ''
       picture: f-bubk.png
       comment: ''
-      constants:
-        fuel_density: 0.72
+    constants:
+      liquids:
+        fuel_100LL:
+          density: 0.72
     centrogram:
     - designation: Pt1
       lever_arm: 0.8
@@ -60,6 +62,7 @@
       comment: ''
     - designation: Fuel
       lever_arm: 1.07
+      liquid: fuel_100LL
       volume:
         default: 85
         min: 0
