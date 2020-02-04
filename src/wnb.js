@@ -39,7 +39,7 @@ function calculate_cg(settings) {
     if (load.hasOwnProperty('mass')) {
       mass = load.mass.current_value;
     } else if (load.hasOwnProperty('volume')) {
-      mass = load.volume.current_value * settings.aircraft.constants.fuel_density;
+      mass = load.volume.current_value * settings.constants.liquids[load.liquid].density;
     }
     total_mass += mass;
     moment = mass * load.lever_arm;
