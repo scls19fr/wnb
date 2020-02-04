@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/scls19fr/wnb.svg?token=AxFMWH2Sp4p3U9AyAyZs&branch=master)](https://travis-ci.com/scls19fr/wnb)
+
 # Weight and balance (wnb)
 
 Calculate weight and balance of aircraft
