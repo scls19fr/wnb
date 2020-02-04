@@ -14,7 +14,8 @@ test('load sample config', () => {
     expect(cfg.aircraft.owner).toBe('');
     expect(cfg.aircraft.picture).toBe('f-bubk.png');
     expect(cfg.aircraft.comment).toBe('');
-    expect(cfg.aircraft.constants.fuel_density).toBe(0.72);
+  
+    expect(cfg.constants.liquids.fuel_100LL.density).toBe(0.72);
 
     expect(cfg.centrogram.length).toBe(5);
     for(let i = 0; i < cfg.centrogram.length; i++) {
