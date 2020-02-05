@@ -11,8 +11,9 @@ test('load sample config', () => {
     expect(cfg.aircraft.designation).toBe('Cessna 150');
     expect(cfg.aircraft.type).toBe('C150');
     expect(cfg.aircraft.immat).toBe('F-BUBK');
-    expect(cfg.aircraft.owner).toBe('');
     expect(cfg.aircraft.picture).toBe('f-bubk.png');
+    expect(cfg.aircraft.owner).toBe('Aéro-Club du Poitou');
+    expect(cfg.aircraft.owner_picture).toBe('acp.png')
     expect(cfg.aircraft.comment).toBe('');
   
     expect(cfg.constants.liquids.fuel_100LL.density).toBe(0.72);
