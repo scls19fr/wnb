@@ -94,4 +94,15 @@ test('inside centrogram', () => {
     console.log(G);
     expect(wnb.inside_centrogram(G, cfg.centrogram)).toBe(false);
     */
+
+    // too light
+    settings = wnb.build_settings(cfg);
+    settings.loads[0].mass.current_value = 200;  // Empty aircraft
+    settings.loads[1].mass.current_value = 0;  // Pilot
+    settings.loads[2].mass.current_value = 0;  // Passenger
+    settings.loads[3].mass.current_value = 0;  // Luggage
+    settings.loads[4].volume.current_value = 0 / cfg.constants.liquids.fuel_100LL.density;  // Fuel
+    G = wnb.calculate_cg(cfg, settings);
+    console.log(G);
+    expect(wnb.inside_centrogram(G, cfg.centrogram)).toBe(false);
 });
