@@ -1,7 +1,7 @@
 const wnb = require('../src/wnb');
 
 test('load sample config', () => {
-    cfg = wnb.load_config('./data/f-bubk.yml');
+    let cfg = wnb.load_config('./data/f-bubk.yml');
     console.log(cfg);
     expect(cfg.file_format_version).toBe('0.0.1');
 
@@ -39,8 +39,8 @@ test('load sample config', () => {
 });
 
 test('build settings', () => {
-    cfg = wnb.load_config('./data/f-bubk.yml');
-    settings = wnb.build_settings(cfg);
+    let cfg = wnb.load_config('./data/f-bubk.yml');
+    let settings = wnb.build_settings(cfg);
     for(let i = 0; i < cfg.loads.length; i++) {
         if (cfg.loads[i].hasOwnProperty('mass')) {
             expect(settings.loads[i].mass.current_value).toBe(cfg.loads[i].mass.default);
@@ -51,20 +51,20 @@ test('build settings', () => {
 });
 
 test('calculate center of gravity', () => {
-    cfg = wnb.load_config('./data/f-bubk.yml');
-    settings = wnb.build_settings(cfg);
-    G = wnb.calculate_cg(cfg, settings);
+    let cfg = wnb.load_config('./data/f-bubk.yml');
+    let settings = wnb.build_settings(cfg);
+    let G = wnb.calculate_cg(cfg, settings);
     expect(G.mass).toBe(668.2);
     expect(G.lever_arm).toBeCloseTo(0.907, precision = 3);
     expect(G.moment).toBeCloseTo(606.375, precision = 3);
 });
 
 test('inside centrogram', () => {
-    cfg = wnb.load_config('./data/f-bubk.yml');
+    let cfg = wnb.load_config('./data/f-bubk.yml');
 
     // in range
-    settings = wnb.build_settings(cfg);
-    G = wnb.calculate_cg(cfg, settings);
+    let settings = wnb.build_settings(cfg);
+    let G = wnb.calculate_cg(cfg, settings);
     console.log(cfg.centrogram);
     console.log(G);
     expect(wnb.inside_centrogram(G, cfg.centrogram)).toBe(true);

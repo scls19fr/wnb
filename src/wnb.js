@@ -30,7 +30,7 @@ function build_settings(cfg) {
   return settings;
 }
 
-function calculate_cg(settings) {
+function calculate_cg(cfg, settings) {
   total_mass = 0.0;
   total_moment = 0.0;
 
@@ -39,7 +39,7 @@ function calculate_cg(settings) {
     if (load.hasOwnProperty('mass')) {
       mass = load.mass.current_value;
     } else if (load.hasOwnProperty('volume')) {
-      mass = load.volume.current_value * settings.constants.liquids[load.liquid].density;
+      mass = load.volume.current_value * cfg.constants.liquids[load.liquid].density;
     }
     total_mass += mass;
     moment = mass * load.lever_arm;
