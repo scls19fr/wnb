@@ -1,0 +1,8 @@
+---
+file_format_version: 0.0.1
+application: wnb
+usage: aircrafts-index
+title: Aéro-Club du Poitou
+aircrafts:
+- f-bubk.yml
+- f-hppl.yml
