@@ -6,6 +6,7 @@ weight_and_balance:
   date: 01/09/2015
   version: '1'
 aircraft:
+  category: airplane
   designation: Evektor Sportstar
   type: Light sport aircraft
   immat: F-HPPL
