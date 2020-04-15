@@ -11,30 +11,30 @@ function load_config(filename) {
   }
 }
 
-function build_settings(cfg) {
-  let settings = {"loads": []};
+function build_loads_array(cfg) {
+  let loads = [];
   for(let i = 0; i < cfg.loads.length; i++) {
     load = cfg.loads[i]
     if (load.hasOwnProperty('mass')) {
       new_load = load;
       new_load.mass.current_value = new_load.mass.default;
-      settings.loads.push(new_load);
+      loads.push(new_load);
     } else if (load.hasOwnProperty('volume')) {
       new_load = load;
       new_load.volume.current_value = new_load.volume.default;
-      settings.loads.push(new_load);
+      loads.push(new_load);
     } else {
-      settings.loads.push({});
+      loads.push({});
     }
   }
-  return settings;
+  return loads;
 }
 
-function calculate_cg(cfg, settings) {
+function calculate_cg(cfg, loads) {
   total_mass = 0.0;
   total_moment = 0.0;
 
-  for(let i = 0; i < settings.loads.length; i++) {
+  for(let i = 0; i < loads.length; i++) {
     load = cfg.loads[i]
     if (load.hasOwnProperty('mass')) {
       mass = load.mass.current_value;
@@ -58,6 +58,6 @@ function inside_centrogram(G, centrogram) {
 }
 
 exports.load_config = load_config;
-exports.build_settings = build_settings;
+exports.build_loads_array = build_loads_array;
 exports.calculate_cg = calculate_cg;
 exports.inside_centrogram = inside_centrogram;

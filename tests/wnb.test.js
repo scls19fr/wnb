@@ -38,21 +38,21 @@ test('load sample config', () => {
     expect(cfg.loads[1].comment).toBe('');
 });
 
-test('build settings', () => {
+test('build loads array', () => {
     let cfg = wnb.load_config('./data/f-bubk.yml');
-    let settings = wnb.build_settings(cfg);
+    let loads = wnb.build_loads_array(cfg);
     for(let i = 0; i < cfg.loads.length; i++) {
         if (cfg.loads[i].hasOwnProperty('mass')) {
-            expect(settings.loads[i].mass.current_value).toBe(cfg.loads[i].mass.default);
+            expect(loads[i].mass.current_value).toBe(cfg.loads[i].mass.default);
         } else if (cfg.loads[i].hasOwnProperty('volume')) {
-            expect(settings.loads[i].volume.current_value).toBe(cfg.loads[i].volume.default);
+            expect(loads[i].volume.current_value).toBe(cfg.loads[i].volume.default);
         }
     }
 });
 
 test('calculate center of gravity', () => {
     let cfg = wnb.load_config('./data/f-bubk.yml');
-    let settings = wnb.build_settings(cfg);
+    let settings = wnb.build_loads_array(cfg);
     let G = wnb.calculate_cg(cfg, settings);
     expect(G.mass).toBe(668.2);
     expect(G.lever_arm).toBeCloseTo(0.907, precision = 3);
@@ -63,47 +63,47 @@ test('inside centrogram', () => {
     let cfg = wnb.load_config('./data/f-bubk.yml');
 
     // in range
-    let settings = wnb.build_settings(cfg);
-    let G = wnb.calculate_cg(cfg, settings);
+    let loads = wnb.build_loads_array(cfg);
+    let G = wnb.calculate_cg(cfg, loads);
     console.log(cfg.centrogram);
     console.log(G);
     expect(wnb.inside_centrogram(G, cfg.centrogram)).toBe(true);
 
     // overweight
-    settings = wnb.build_settings(cfg);
-    settings.loads[2].mass.current_value = 60;  // Passenger
-    G = wnb.calculate_cg(cfg, settings);
+    loads = wnb.build_loads_array(cfg);
+    loads[2].mass.current_value = 60;  // Passenger
+    G = wnb.calculate_cg(cfg, loads);
     console.log(G);
     expect(wnb.inside_centrogram(G, cfg.centrogram)).toBe(false);
 
     // out of range / back limit
-    settings = wnb.build_settings(cfg);
-    settings.loads[1].mass.current_value = 90;  // Pilot
-    settings.loads[3].mass.current_value = 54;  // Luggage
-    G = wnb.calculate_cg(cfg, settings);
+    loads = wnb.build_loads_array(cfg);
+    loads[1].mass.current_value = 90;  // Pilot
+    loads[3].mass.current_value = 54;  // Luggage
+    G = wnb.calculate_cg(cfg, loads);
     console.log(G);
     expect(wnb.inside_centrogram(G, cfg.centrogram)).toBe(false);
 
     // out of range / front limit
     /*
-    settings = wnb.build_settings(cfg);
-    settings.loads[1].mass.current_value = 100;  // Pilot
-    settings.loads[2].mass.current_value = 0;  // Passenger
-    settings.loads[3].mass.current_value = 0;  // Luggage
-    settings.loads[4].volume.current_value = 0 / cfg.constants.liquids.fuel_100LL.density;  // Fuel
-    G = wnb.calculate_cg(cfg, settings);
+    loads = wnb.build_loads_array(cfg);
+    loads[1].mass.current_value = 100;  // Pilot
+    loads[2].mass.current_value = 0;  // Passenger
+    loads[3].mass.current_value = 0;  // Luggage
+    loads[4].volume.current_value = 0 / cfg.constants.liquids.fuel_100LL.density;  // Fuel
+    G = wnb.calculate_cg(cfg, loads);
     console.log(G);
     expect(wnb.inside_centrogram(G, cfg.centrogram)).toBe(false);
     */
 
     // too light
-    settings = wnb.build_settings(cfg);
-    settings.loads[0].mass.current_value = 200;  // Empty aircraft
-    settings.loads[1].mass.current_value = 0;  // Pilot
-    settings.loads[2].mass.current_value = 0;  // Passenger
-    settings.loads[3].mass.current_value = 0;  // Luggage
-    settings.loads[4].volume.current_value = 0 / cfg.constants.liquids.fuel_100LL.density;  // Fuel
-    G = wnb.calculate_cg(cfg, settings);
+    loads = wnb.build_loads_array(cfg);
+    loads[0].mass.current_value = 200;  // Empty aircraft
+    loads[1].mass.current_value = 0;  // Pilot
+    loads[2].mass.current_value = 0;  // Passenger
+    loads[3].mass.current_value = 0;  // Luggage
+    loads[4].volume.current_value = 0 / cfg.constants.liquids.fuel_100LL.density;  // Fuel
+    G = wnb.calculate_cg(cfg, loads);
     console.log(G);
     expect(wnb.inside_centrogram(G, cfg.centrogram)).toBe(false);
 });
