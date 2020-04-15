@@ -52,8 +52,8 @@ test('build loads array', () => {
 
 test('calculate center of gravity', () => {
     let cfg = wnb.load_config('./data/f-bubk.yml');
-    let settings = wnb.build_loads_array(cfg);
-    let G = wnb.calculate_cg(cfg, settings);
+    let loads = wnb.build_loads_array(cfg);
+    let G = wnb.calculate_cg(cfg, loads);
     expect(G.mass).toBe(668.2);
     expect(G.lever_arm).toBeCloseTo(0.907, precision = 3);
     expect(G.moment).toBeCloseTo(606.375, precision = 3);

@@ -1,0 +1,108 @@
+{
+    "application": "wnb",
+    "usage": "aircraft-wnb-data",
+    "file_format_version": "0.0.1",
+    "weight_and_balance": {
+      "date": "21/03/2006",
+      "version": "1"
+    },
+    "aircraft": {
+      "category": "airplane",
+      "designation": "Cessna 150",
+      "type": "C150",
+      "immat": "F-BUBK",
+      "picture": "f-bubk.png",
+      "owner": "Aéro-Club du Poitou",
+      "owner_picture": "acp.png",
+      "comment": ""
+    },
+    "constants": {
+      "liquids": {
+        "fuel_100LL": {
+          "density": 0.72
+        }
+      }
+    },
+    "centrogram": [
+      {
+        "designation": "Pt1",
+        "lever_arm": 0.8,
+        "mass": 250
+      },
+      {
+        "designation": "Pt2",
+        "lever_arm": 0.8,
+        "mass": 580
+      },
+      {
+        "designation": "Pt3",
+        "lever_arm": 0.835,
+        "mass": 726
+      },
+      {
+        "designation": "Pt4",
+        "lever_arm": 0.952,
+        "mass": 726
+      },
+      {
+        "designation": "Pt5",
+        "lever_arm": 0.952,
+        "mass": 250
+      }
+    ],
+    "loads": [
+      {
+        "designation": "Empty aircraft",
+        "lever_arm": 0.862,
+        "mass": {
+          "default": 520
+        },
+        "comment": ""
+      },
+      {
+        "designation": "Pilot",
+        "lever_arm": 0.993,
+        "mass": {
+          "default": 77,
+          "min": 0,
+          "max": 150,
+          "step": 1
+        },
+        "comment": ""
+      },
+      {
+        "designation": "Passenger",
+        "lever_arm": 0.993,
+        "mass": {
+          "default": 0,
+          "min": 0,
+          "max": 150,
+          "step": 1
+        },
+        "comment": ""
+      },
+      {
+        "designation": "Luggage",
+        "lever_arm": 1.619,
+        "mass": {
+          "default": 10,
+          "min": 0,
+          "max": 54,
+          "step": 0.1
+        },
+        "comment": ""
+      },
+      {
+        "designation": "Fuel",
+        "lever_arm": 1.07,
+        "liquid": "fuel_100LL",
+        "volume": {
+          "default": 85,
+          "min": 0,
+          "max": 85,
+          "step": 0.1
+        },
+        "comment": ""
+      }
+    ]
+  }
