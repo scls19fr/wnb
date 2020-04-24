@@ -52,7 +52,7 @@ function calculate_cg(cfg, loads) {
 }
 
 function inside_centrogram(G, centrogram) {
-  polygon = []
+  const polygon = []
   centrogram.forEach(function(pt) {
     polygon.push([pt.lever_arm, pt.mass]); 
   });
