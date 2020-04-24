@@ -12,9 +12,10 @@ function load_config(filename) {
 }
 
 function build_loads_array(cfg) {
-  let loads = [];
+  const loads = [];
+  let new_load;
   for(let i = 0; i < cfg.loads.length; i++) {
-    load = cfg.loads[i]
+    const load = cfg.loads[i]
     if (load.hasOwnProperty('mass')) {
       new_load = load;
       new_load.mass.current_value = new_load.mass.default;
@@ -31,21 +32,22 @@ function build_loads_array(cfg) {
 }
 
 function calculate_cg(cfg, loads) {
-  total_mass = 0.0;
-  total_moment = 0.0;
+  let total_mass = 0.0;
+  let total_moment = 0.0;
+  let mass = 0.0;
 
   for(let i = 0; i < loads.length; i++) {
-    load = cfg.loads[i]
+    const load = cfg.loads[i]
     if (load.hasOwnProperty('mass')) {
       mass = load.mass.current_value;
     } else if (load.hasOwnProperty('volume')) {
       mass = load.volume.current_value * cfg.constants.liquids[load.liquid].density;
     }
     total_mass += mass;
-    moment = mass * load.lever_arm;
+    const moment = mass * load.lever_arm;
     total_moment += moment;
   }
-  lever_arm = total_moment / total_mass;
+  const lever_arm = total_moment / total_mass;
   return {'mass': total_mass, 'lever_arm': lever_arm, 'moment': total_moment};
 }
 
