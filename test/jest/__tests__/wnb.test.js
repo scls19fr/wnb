@@ -1,7 +1,7 @@
 const wnb = require('../../../src/wnb');
 
 test('load sample config', () => {
-    let cfg = wnb.load_config('../../../data/f-bubk.yml');
+    let cfg = wnb.load_config('./data/f-bubk.yml');
     console.log(cfg);
     expect(cfg.file_format_version).toBe('0.0.1');
 
@@ -39,7 +39,7 @@ test('load sample config', () => {
 });
 
 test('build loads array', () => {
-    let cfg = wnb.load_config('../../../data/f-bubk.yml');
+    let cfg = wnb.load_config('./data/f-bubk.yml');
     let loads = wnb.build_loads_array(cfg);
     for(let i = 0; i < cfg.loads.length; i++) {
         if (cfg.loads[i].hasOwnProperty('mass')) {
@@ -51,7 +51,7 @@ test('build loads array', () => {
 });
 
 test('calculate center of gravity', () => {
-    let cfg = wnb.load_config('../../../data/f-bubk.yml');
+    let cfg = wnb.load_config('./data/f-bubk.yml');
     let loads = wnb.build_loads_array(cfg);
     let G = wnb.calculate_cg(cfg, loads);
     expect(G.mass).toBe(668.2);
@@ -60,7 +60,7 @@ test('calculate center of gravity', () => {
 });
 
 test('inside centrogram', () => {
-    let cfg = wnb.load_config('../../../data/f-bubk.yml');
+    let cfg = wnb.load_config('./data/f-bubk.yml');
 
     // in range
     let loads = wnb.build_loads_array(cfg);
