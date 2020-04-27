@@ -2,7 +2,7 @@ import { safeLoad } from 'js-yaml'
 import { readFileSync } from 'fs'
 import inside from 'point-in-polygon'
 
-export function load_config(filename) {
+export function loadConfigYML(filename) {
   try {
     const cfg = safeLoad(readFileSync(filename, 'utf8'))
     return cfg
@@ -11,7 +11,7 @@ export function load_config(filename) {
   }
 }
 
-export function build_loads_array(cfg) {
+export function buildLoadsArray(cfg) {
   const loads = []
   let new_load
   for(let i = 0; i < cfg.loads.length; i++) {
@@ -31,7 +31,7 @@ export function build_loads_array(cfg) {
   return loads
 }
 
-export function calculate_cg(cfg, loads) {
+export function calculateGravityCenter(cfg, loads) {
   let total_mass = 0.0
   let total_moment = 0.0
   let mass = 0.0
@@ -51,7 +51,7 @@ export function calculate_cg(cfg, loads) {
   return {'mass': total_mass, 'lever_arm': lever_arm, 'moment': total_moment}
 }
 
-export function inside_centrogram(G, centrogram) {
+export function insideCentrogram(G, centrogram) {
   const polygon = []
   centrogram.forEach(function(pt) {
     polygon.push([pt.lever_arm, pt.mass]); 

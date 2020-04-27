@@ -1,7 +1,7 @@
-import { load_config, build_loads_array, calculate_cg, inside_centrogram } from '../../../src/wnb'
+import { loadConfigYML, buildLoadsArray, calculateGravityCenter, insideCentrogram } from '../../../src/composables/functions'
 
 test('load sample config', () => {
-    let cfg = load_config('./data/f-bubk.yml')
+    let cfg = loadConfigYML('./data/f-bubk.yml')
     console.log(cfg)
     expect(cfg.file_format_version).toBe('0.0.1')
 
@@ -39,8 +39,8 @@ test('load sample config', () => {
 })
 
 test('build loads array', () => {
-    let cfg = load_config('./data/f-bubk.yml')
-    let loads = build_loads_array(cfg)
+    let cfg = loadConfigYML('./data/f-bubk.yml')
+    let loads = buildLoadsArray(cfg)
     for(let i = 0; i < cfg.loads.length; i++) {
         if (cfg.loads[i].hasOwnProperty('mass')) {
             expect(loads[i].mass.current_value).toBe(cfg.loads[i].mass.default)
@@ -51,59 +51,59 @@ test('build loads array', () => {
 })
 
 test('calculate center of gravity', () => {
-    let cfg = load_config('./data/f-bubk.yml')
-    let loads = build_loads_array(cfg)
-    let G = calculate_cg(cfg, loads)
+    let cfg = loadConfigYML('./data/f-bubk.yml')
+    let loads = buildLoadsArray(cfg)
+    let G = calculateGravityCenter(cfg, loads)
     expect(G.mass).toBe(668.2)
     expect(G.lever_arm).toBeCloseTo(0.907, 3)
     expect(G.moment).toBeCloseTo(606.375, 3)
 })
 
 test('inside centrogram', () => {
-    let cfg = load_config('./data/f-bubk.yml')
+    let cfg = loadConfigYML('./data/f-bubk.yml')
 
     // in range
-    let loads = build_loads_array(cfg)
-    let G = calculate_cg(cfg, loads)
+    let loads = buildLoadsArray(cfg)
+    let G = calculateGravityCenter(cfg, loads)
     console.log(cfg.centrogram)
     console.log(G)
-    expect(inside_centrogram(G, cfg.centrogram)).toBe(true)
+    expect(insideCentrogram(G, cfg.centrogram)).toBe(true)
 
     // overweight
-    loads = build_loads_array(cfg)
+    loads = buildLoadsArray(cfg)
     loads[2].mass.current_value = 60;  // Passenger
-    G = calculate_cg(cfg, loads)
+    G = calculateGravityCenter(cfg, loads)
     console.log(G)
-    expect(inside_centrogram(G, cfg.centrogram)).toBe(false)
+    expect(insideCentrogram(G, cfg.centrogram)).toBe(false)
 
     // out of range / back limit
-    loads = build_loads_array(cfg)
+    loads = buildLoadsArray(cfg)
     loads[1].mass.current_value = 90;  // Pilot
     loads[3].mass.current_value = 54;  // Luggage
-    G = calculate_cg(cfg, loads)
+    G = calculateGravityCenter(cfg, loads)
     console.log(G)
-    expect(inside_centrogram(G, cfg.centrogram)).toBe(false)
+    expect(insideCentrogram(G, cfg.centrogram)).toBe(false)
 
     // out of range / front limit
     /*
-    loads = wnb.build_loads_array(cfg)
+    loads = wnb.buildLoadsArray(cfg)
     loads[1].mass.current_value = 100;  // Pilot
     loads[2].mass.current_value = 0;  // Passenger
     loads[3].mass.current_value = 0;  // Luggage
     loads[4].volume.current_value = 0 / cfg.constants.liquids.fuel_100LL.density;  // Fuel
-    G = wnb.calculate_cg(cfg, loads)
+    G = wnb.calculateGravityCenter(cfg, loads)
     console.log(G)
-    expect(wnb.inside_centrogram(G, cfg.centrogram)).toBe(false)
+    expect(wnb.insideCentrogram(G, cfg.centrogram)).toBe(false)
     */
 
     // too light
-    loads = build_loads_array(cfg)
+    loads = buildLoadsArray(cfg)
     loads[0].mass.current_value = 200;  // Empty aircraft
     loads[1].mass.current_value = 0;  // Pilot
     loads[2].mass.current_value = 0;  // Passenger
     loads[3].mass.current_value = 0;  // Luggage
     loads[4].volume.current_value = 0 / cfg.constants.liquids.fuel_100LL.density;  // Fuel
-    G = calculate_cg(cfg, loads)
+    G = calculateGravityCenter(cfg, loads)
     console.log(G)
-    expect(inside_centrogram(G, cfg.centrogram)).toBe(false)
+    expect(insideCentrogram(G, cfg.centrogram)).toBe(false)
 })
