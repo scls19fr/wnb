@@ -11,6 +11,21 @@ export function loadConfigYML(filename) {
   }
 }
 
+function defineLoadSliderProperties(slider_properties) {
+  slider_properties.current_value = slider_properties.default
+  if (!slider_properties.hasOwnProperty('step')) {
+    slider_properties.step = 1
+  }
+  if (slider_properties.hasOwnProperty('min') && slider_properties.hasOwnProperty('max')) {
+    slider_properties.enabled = true
+  } else {
+    slider_properties.min = slider_properties.default - slider_properties.step
+    slider_properties.max = slider_properties.default + slider_properties.step
+    slider_properties.enabled = false
+  }
+  return slider_properties
+}
+
 export function buildLoadsArray(cfg) {
   const loads = []
   let new_load
@@ -18,11 +33,11 @@ export function buildLoadsArray(cfg) {
     const load = cfg.loads[i]
     if (load.hasOwnProperty('mass')) {
       new_load = load
-      new_load.mass.current_value = new_load.mass.default
+      new_load.mass = defineLoadSliderProperties(new_load.mass)
       loads.push(new_load)
     } else if (load.hasOwnProperty('volume')) {
       new_load = load
-      new_load.volume.current_value = new_load.volume.default
+      new_load.volume = defineLoadSliderProperties(new_load.volume)
       loads.push(new_load)
     } else {
       loads.push({})

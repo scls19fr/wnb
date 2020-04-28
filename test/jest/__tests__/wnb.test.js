@@ -27,10 +27,12 @@ test('load sample config', () => {
     expect(cfg.centrogram[0].lever_arm).toBe(0.8)
 
     expect(cfg.loads.length).toBe(5)
+
     expect(cfg.loads[0].designation).toBe('Empty aircraft')
     expect(cfg.loads[0].lever_arm).toBe(0.862)
     expect(cfg.loads[0].mass).toStrictEqual({'default': 520})
     expect(cfg.loads[0].comment).toBe('')
+
     expect(cfg.loads[1].designation).toBe('Pilot')
     expect(cfg.loads[1].lever_arm).toBe(0.993)
     //expect(cfg.loads[1].mass).toStrictEqual({'default': 70, 'min': 0, 'max': 150, 'step': 1})
@@ -48,6 +50,19 @@ test('build loads array', () => {
             expect(loads[i].volume.current_value).toBe(cfg.loads[i].volume.default)
         }
     }
+
+    expect(loads.length).toBe(5)
+    expect(loads[0].mass.default).toBe(520)
+    expect(loads[0].mass.min).toBe(519)
+    expect(loads[0].mass.max).toBe(521)
+    expect(loads[0].mass.step).toBe(1)
+    expect(loads[0].mass.enabled).toBe(false)
+
+    expect(loads[1].mass.default).toBe(77)
+    expect(loads[1].mass.min).toBe(0)
+    expect(loads[1].mass.max).toBe(150)
+    expect(loads[1].mass.step).toBe(1)
+    expect(loads[1].mass.enabled).toBe(true)
 })
 
 test('calculate center of gravity', () => {
