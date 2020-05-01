@@ -5,8 +5,4 @@ file_format_version: 0.0.1
 title: Aéro-Club du Poitou
 aircrafts:
 - f-bubk.yml
-- f-giya.yml
-- f-gkqa.yml
-- f-glvx.yml
-- f-gmou.yml
 - f-hppl.yml
