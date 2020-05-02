@@ -11,7 +11,7 @@
           aria-label="Menu"
         />
 
-        <q-toolbar-title>
+        <q-toolbar-title @click="$router.push({name: 'Index'})">
           Weight and balance
         </q-toolbar-title>
 
@@ -27,6 +27,14 @@
     >
       <q-list>
         <q-item-label header>Essential Links</q-item-label>
+        <q-item clickable tag="a" :to="{name: 'WeightAndBalance'}">
+          <q-item-section avatar>
+            <q-icon name="flight_takeoff" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Weight and Balance</q-item-label>
+          </q-item-section>
+        </q-item>
         <q-item clickable tag="a" target="_blank" href="https://quasar.dev">
           <q-item-section avatar>
             <q-icon name="school" />

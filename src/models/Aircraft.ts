@@ -1,0 +1,66 @@
+  export type AircraftModel = {
+    application?: string;
+    usage?: string;
+    file_format_version?: string;
+    weight_and_balance?: WeightAndBalance;
+    aircraft?: Aircraft;
+    constants?: Constants;
+    centrogram?: Centrogram[];
+    loads?: Load[];
+  }
+  export type WeightAndBalance = {
+    date: string;
+    version: string;
+  }
+
+  export type Aircraft = {
+    category: string;
+    designation: string;
+    type: string;
+    immat: string;
+    picture?: string;
+    owner: string;
+    owner_picture?: string;
+    comment?: string;
+  }
+
+  export type Fuel100LL = {
+    density: number;
+  }
+
+  export type Liquids = {
+    fuel_100LL: Fuel100LL;
+  }
+
+  export type Constants = {
+    liquids: Liquids;
+  }
+
+  export type Centrogram = {
+    designation: string;
+    lever_arm: number;
+    mass: number;
+  }
+
+  export type Mass = {
+    default: number;
+    min?: number;
+    max?: number;
+    step?: number;
+  }
+
+  export type Volume = {
+    default: number;
+    min: number;
+    max: number;
+    step: number;
+  }
+
+  export type Load = {
+    designation: string;
+    lever_arm: number;
+    mass: Mass;
+    comment: string;
+    liquid: string;
+    volume: Volume;
+  }
