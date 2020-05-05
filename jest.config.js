@@ -1,4 +1,6 @@
 module.exports = {
+  preset: 'ts-jest',
+  testEnvironment: 'node',
   globals: {
     __DEV__: true
   },
@@ -20,16 +22,19 @@ module.exports = {
   ],
   coverageThreshold: {
     global: {
-    //  branches: 50,
-    //  functions: 50,
-    //  lines: 50,
-    //  statements: 50
+      //  branches: 50,
+      //  functions: 50,
+      //  lines: 50,
+      //  statements: 50
     }
   },
   testMatch: [
-    '<rootDir>/test/jest/__tests__/**/*.spec.js',
-    '<rootDir>/test/jest/__tests__/**/*.test.js',
-    '<rootDir>/src/**/__tests__/*_jest.spec.js'
+    '<rootDir>/test/jest/__tests__/**/*.spec.ts',
+    '<rootDir>/test/jest/__tests__/**/*.test.ts',
+    // '<rootDir>/test/jest/__tests__/**/*.spec.js',
+    // '<rootDir>/test/jest/__tests__/**/*.test.js',
+    //  '<rootDir>/src/**/__tests__/*_jest.spec.js'
+    '<rootDir>/src/**/__tests__/*_jest.spec.ts'
   ],
   moduleFileExtensions: [
     'vue',
@@ -37,7 +42,7 @@ module.exports = {
     'jsx',
     'json',
     'ts',
-    'tsx'
+    // 'tsx'
   ],
   moduleNameMapper: {
     '^vue$': '<rootDir>/node_modules/vue/dist/vue.common.js',
@@ -49,7 +54,8 @@ module.exports = {
   },
   transform: {
     '.*\\.vue$': 'vue-jest',
-    '.*\\.js$': 'babel-jest',
+    // '.*\\.js$': 'babel-jest',
+    '^.+\\.(ts|tsx)$': 'ts-jest',
     '.+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
     // use these if NPM is being flaky
     // '.*\\.vue$': '<rootDir>/node_modules/@quasar/quasar-app-extension-testing-unit-jest/node_modules/vue-jest',
@@ -61,4 +67,4 @@ module.exports = {
   snapshotSerializers: [
     '<rootDir>/node_modules/jest-serializer-vue'
   ]
-}
+};

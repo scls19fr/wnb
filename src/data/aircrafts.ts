@@ -1,13 +1,11 @@
 import axios, {AxiosInstance, AxiosRequestConfig, AxiosStatic} from 'axios';
 import yaml  from 'js-yaml';
-import {AircraftModel} from "src/models/Aircraft";
+import {AircraftModel} from 'src/models/Aircraft';
 
 const index = 'index.yml';
-const ymlFileExtension = 'yml';
 const baseURL ='https://raw.githubusercontent.com/scls19fr/wnb/master/data/';
 
 export class Api {
-  private aircraft: string[] = [];
   private api = axios.create();
   constructor() {
     this.api = axios.create({baseURL});
@@ -15,11 +13,12 @@ export class Api {
 
   private async fetchAirCraftIndex() : Promise<AircraftApiType[]> {
     const request: any = await this.api.get<string>(index);
-    let response: AircraftApiType[] = [];
+    const response: AircraftApiType[] = [];
     try {
       response.push(yaml.safeLoad(request.data) as AircraftApiType);
     }
     catch (e) {
+      // tslint:disable-next-line:no-console
       console.log(e);
     }
     return response;
@@ -27,11 +26,12 @@ export class Api {
 
   private async fetchAirCraft(aircraft: string) : Promise<AircraftModel[]> {
     const request: any = await this.api.get<string>(Api.addYmlExtension(aircraft));
-    let response: AircraftModel[] = [];
+    const response: AircraftModel[] = [];
     try {
       response.push(yaml.safeLoad(request.data) as AircraftModel);
     }
     catch (e) {
+      // tslint:disable-next-line:no-console
       console.log(e);
     }
     return response;

@@ -4,9 +4,9 @@
     file_format_version?: string;
     weight_and_balance?: WeightAndBalance;
     aircraft?: Aircraft;
-    constants?: Constants;
-    centrogram?: Centrogram[];
-    loads?: Load[];
+    constants: Constants;
+    centrogram: Centrogram[];
+    loads: Load[];
   }
   export type WeightAndBalance = {
     date: string;
@@ -42,25 +42,37 @@
     mass: number;
   }
 
-  export type Mass = {
-    default: number;
-    min?: number;
-    max?: number;
-    step?: number;
-  }
-
-  export type Volume = {
+  export interface SliderProperties  {
     default: number;
     min: number;
     max: number;
     step: number;
+    enabled: boolean;
+    current_value: number;
+  }
+  export interface Mass extends SliderProperties {
+    default: number;
+    min: number;
+    max: number;
+    step: number;
+    enabled: boolean;
+    current_value: number;
+  }
+
+  export interface Volume extends SliderProperties {
+    default: number;
+    min: number;
+    max: number;
+    step: number;
+    enabled: boolean;
+    current_value: number;
   }
 
   export type Load = {
     designation: string;
     lever_arm: number;
-    mass: Mass;
+    mass?: Mass;
     comment: string;
     liquid: string;
-    volume: Volume;
+    volume?: Volume;
   }
