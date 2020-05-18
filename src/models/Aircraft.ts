@@ -44,19 +44,19 @@
 
   export interface SliderProperties  {
     default: number;
-    min: number;
-    max: number;
-    step: number;
-    enabled: boolean;
-    current_value: number;
+    min?: number;
+    max?: number;
+    step?: number;
+    enabled?: boolean;
+    current_value?: number;
   }
   export interface Mass extends SliderProperties {
     default: number;
-    min: number;
-    max: number;
-    step: number;
-    enabled: boolean;
-    current_value: number;
+    min?: number;
+    max?: number;
+    step?: number;
+    enabled?: boolean;
+    current_value?: number;
   }
 
   export interface Volume extends SliderProperties {
@@ -64,8 +64,8 @@
     min: number;
     max: number;
     step: number;
-    enabled: boolean;
-    current_value: number;
+    enabled?: boolean;
+    current_value?: number;
   }
 
   export type Load = {

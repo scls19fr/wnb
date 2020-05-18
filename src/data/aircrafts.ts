@@ -1,49 +1,31 @@
-import axios, {AxiosInstance, AxiosRequestConfig, AxiosStatic} from 'axios';
-import yaml  from 'js-yaml';
+import axios from 'axios';
+import yaml from 'js-yaml';
 import {AircraftModel} from 'src/models/Aircraft';
 
 const index = 'index.yml';
-const baseURL ='https://raw.githubusercontent.com/scls19fr/wnb/master/data/';
 
+const baseURL ='https://raw.githubusercontent.com/scls19fr/wnb-data-acp/master/data';
 export class Api {
-  private api = axios.create();
-  constructor() {
-    this.api = axios.create({baseURL});
-  }
 
   private async fetchAirCraftIndex() : Promise<AircraftApiType[]> {
-    const request: any = await this.api.get<string>(index);
+    const request: any = await axios.get<string>(`${baseURL}/${index}`);
     const response: AircraftApiType[] = [];
-    try {
-      response.push(yaml.safeLoad(request.data) as AircraftApiType);
-    }
-    catch (e) {
-      // tslint:disable-next-line:no-console
-      console.log(e);
-    }
-    return response;
+    return request && request.data ? [yaml.safeLoad(request.data)] : response;
   }
 
   private async fetchAirCraft(aircraft: string) : Promise<AircraftModel[]> {
-    const request: any = await this.api.get<string>(Api.addYmlExtension(aircraft));
+    const request: any = await axios.get<string>(`${baseURL}/${Api.addYmlExtension(aircraft)}`);
     const response: AircraftModel[] = [];
-    try {
-      response.push(yaml.safeLoad(request.data) as AircraftModel);
-    }
-    catch (e) {
-      // tslint:disable-next-line:no-console
-      console.log(e);
-    }
-    return response;
+    return request && request.data ? [yaml.safeLoad(request.data)] : response;
   }
-
 
   public async getAirCraftList() : Promise<string[]> {
     const data = await this.fetchAirCraftIndex();
-    if (data.length > 0) {
-      return data[0].aircrafts.map(e => Api.removeYmlExtension(e));
+    const airCraftList: string[] = [];
+    if (data && data.length > 0) {
+      data[0].aircrafts.forEach(x => airCraftList.push(Api.removeYmlExtension(x)))
     }
-    return [];
+    return airCraftList;
   }
 
   public async getAircraft(aircraftModel: string) : Promise<AircraftModel> {

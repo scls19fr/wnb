@@ -5,7 +5,7 @@ const routes = [
     component: () => import('layouts/MyLayout.vue'),
     children: [
       { path: '', name: 'Index', component: () => import('pages/Index.vue') },
-      { path: 'weight-and-balance', name: 'WeightAndBalance', component: () => import('pages/WeightAndBalance.vue') }
+      { path: 'weight-and-balance', name: 'WeightAndBalance', component: () => import('pages/weight-and-balance/WeightAndBalance.vue') }
 
     ]
   }

@@ -3,5 +3,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "experimentalDecorators": true
-  }
+  },
+  "exclude": [
+
+  ]
 }
