@@ -71,8 +71,8 @@
   export type Load = {
     designation: string;
     lever_arm: number;
-    mass?: Mass;
     comment: string;
     liquid: string;
+    mass?: Mass;
     volume?: Volume;
   }

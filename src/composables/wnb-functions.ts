@@ -54,9 +54,9 @@ export class WnbFunctions {
     }
     for (let i = 0; i < loads.length; i++) {
       const load = cfg.loads[i]
-      if (load.mass) {
+      if (load.mass && typeof load.mass.current_value === 'number') {
         mass = load.mass.current_value;
-      } else if (load.volume) {
+      } else if (load.volume && typeof load.volume.current_value === 'number') {
         mass = load.volume.current_value * cfg.constants.liquids.fuel_100LL.density;
       }
       gravityCenter.mass += mass;
