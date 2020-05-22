@@ -76,3 +76,9 @@
     mass?: Mass;
     volume?: Volume;
   }
+
+  export type AircraftApiType = {
+    title: string;
+    aircrafts: string[];
+  }
+

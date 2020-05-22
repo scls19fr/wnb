@@ -1,6 +1,6 @@
 module.exports = {
   preset: 'ts-jest',
-  testEnvironment: 'node',
+  testEnvironment: 'jest-environment-jsdom-sixteen',
   globals: {
     __DEV__: true
   },
@@ -14,6 +14,8 @@ module.exports = {
   // watch: true,
   collectCoverage: true,
   coverageDirectory: '<rootDir>/test/jest/coverage',
+  coverageProvider: 'v8',
+
   collectCoverageFrom: [
     '<rootDir>/src/**/*.vue',
     '<rootDir>/src/**/*.js',

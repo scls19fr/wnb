@@ -43,7 +43,6 @@ it('returns an aircraft', async () => {
   expect(result).toEqual(fHppl);
 });
 
-
 it('returns an empty list of aircrafts', async () => {
   // Arrange
   mockedAxios.get.mockResolvedValue({

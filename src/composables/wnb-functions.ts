@@ -67,7 +67,7 @@ export class WnbFunctions {
     return gravityCenter;
   }
 
-  public static insideCentrogram(G: GravityCenter, centrogram: Centrogram[]) {
+  public static insideCentrogram(G: GravityCenter, centrogram: Centrogram[]) : boolean {
     const polygon: number[][] = [];
     centrogram.forEach((pt: Centrogram) => {
       polygon.push([pt.lever_arm, pt.mass]);
