@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.com/scls19fr/wnb.svg?token=AxFMWH2Sp4p3U9AyAyZs&branch=master)](https://travis-ci.com/scls19fr/wnb)
-
 # Weight and balance (wnb)
 
 Calculate weight and balance of aircraft
@@ -14,7 +13,7 @@ Please use data at your own risk.
 
 The use of an application does not prevent the need to know how to do the calculation by yourself.
 
-
+![example](https://raw.githubusercontent.com/scls19fr/wnb/master/Example.jpg?raw=true)
 ## Install the dependencies
 
 ```bash
@@ -50,7 +49,7 @@ See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
 $ yarn run test
 ```
 
-or 
+or
 
 ```bash
 $ yarn test
