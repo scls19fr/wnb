@@ -2,7 +2,7 @@ import {Vue, Component, Watch} from 'vue-property-decorator';
 import {Api} from 'src/data/aircrafts';
 import {AircraftModel, Load} from 'src/models/Aircraft';
 import {ChartData, ChartOptions} from 'chart.js';
-import CentrogramChart from 'components/CentrogramChart.vue';
+import CentrogramChart from 'src/components/CentrogramChart.vue';
 import {WnbFunctions} from 'src/composables/wnb-functions';
 import {GravityCenter} from 'src/models/GravityCenter';
 
