@@ -29,6 +29,10 @@ export default class WeightAndBalancePage extends Vue {
   }
 
 
+  get baseUrl() {
+    return Api.baseUrl;
+  }
+
   get aircraft() {
     // tslint:disable-next-line:no-console
     console.log(this.selectedModel)
@@ -121,7 +125,7 @@ export default class WeightAndBalancePage extends Vue {
       scales: {
         yAxes: [{
           ticks: {
-            beginAtZero:true
+            beginAtZero: true
           }
         }]
       },
@@ -171,7 +175,7 @@ export default class WeightAndBalancePage extends Vue {
         showLine: true
       }, {
         label: 'Gravity Center',
-        data: [{x: this.gravityCenter.lever_arm, y: this.gravityCenter.mass }],
+        data: [{x: this.gravityCenter.lever_arm, y: this.gravityCenter.mass}],
         pointBackgroundColor: this.isInside ? '#65c672' : 'red',
         pointBorderColor: this.isInside ? '#65c672' : 'red',
         pointRadius: 12,

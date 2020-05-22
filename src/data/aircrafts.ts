@@ -6,6 +6,7 @@ const index = 'index.yml';
 
 const baseURL ='https://raw.githubusercontent.com/scls19fr/wnb-data-acp/master/data';
 export class Api {
+  public static readonly baseUrl = baseURL;
 
   private static async fetchAirCraftIndex() : Promise<AircraftApiType[]> {
     const request: any = await axios.get<string>(`${baseURL}/${index}`);
