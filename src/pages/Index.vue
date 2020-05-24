@@ -1,13 +1,13 @@
 <template>
-  <q-page class="row items-center justify-evenly">
+  <q-page class="flex flex-center">
     <img alt="Quasar logo" src="~assets/wnb-logo-full.svg">
   </q-page>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+  import { Vue, Component } from 'vue-property-decorator';
+  @Component( {name: 'IndexPage'})
+  export default class IndexPage extends Vue {
 
-export default Vue.extend({
-  name: 'PageIndex'
-});
+  }
 </script>
