@@ -21,7 +21,6 @@ module.exports = {
     '<rootDir>/src/**/*.vue',
     '<rootDir>/src/**/*.js',
     '<rootDir>/src/**/*.ts',
-    '<rootDir>/src/**/*.jsx'
   ],
   coverageThreshold: {
     global: {
@@ -34,18 +33,13 @@ module.exports = {
   testMatch: [
     '<rootDir>/test/jest/__tests__/**/*.spec.ts',
     '<rootDir>/test/jest/__tests__/**/*.test.ts',
-    // '<rootDir>/test/jest/__tests__/**/*.spec.js',
-    // '<rootDir>/test/jest/__tests__/**/*.test.js',
-    //  '<rootDir>/src/**/__tests__/*_jest.spec.js'
-    '<rootDir>/src/**/__tests__/*_jest.spec.ts'
+    // '<rootDir>/src/**/__tests__/*_jest.spec.ts'
   ],
   moduleFileExtensions: [
-    'vue',
+    // 'vue',
     'js',
-    'jsx',
-    'json',
-    'ts',
-    // 'tsx'
+    // 'json',
+    'ts'
   ],
   moduleNameMapper: {
     '^vue$': '<rootDir>/node_modules/vue/dist/vue.common.js',
