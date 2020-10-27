@@ -119,7 +119,7 @@ export default class WeightAndBalancePage extends Vue {
       },
       title: {
         display: true,
-        text: 'Weight and Balance',
+        text: this.$t('weight_and_balance_plot'),
         position: 'bottom'
       },
       scales: {
@@ -162,7 +162,7 @@ export default class WeightAndBalancePage extends Vue {
     const dataPoints = this.chartDataPoints;
     return {
       datasets: [{
-        label: 'Centrogram',
+        label: this.$t('centrogram'),
         data: dataPoints,
         borderColor: 'black',
         borderWidth: 1,
@@ -174,7 +174,7 @@ export default class WeightAndBalancePage extends Vue {
         tension: 0,
         showLine: true
       }, {
-        label: 'Gravity Center',
+        label: this.$t('gravity_center'),
         data: [{x: this.gravityCenter.lever_arm, y: this.gravityCenter.mass}],
         pointBackgroundColor: this.isInside ? '#65c672' : 'red',
         pointBorderColor: this.isInside ? '#65c672' : 'red',
