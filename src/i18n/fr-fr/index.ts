@@ -15,5 +15,14 @@ export default {
   weight_and_balance_plot: 'Tracé masse et centrage',
   docs: 'Documentation',
   source_code: 'Code source',
-  discord_chat_channel: 'Canal de chat Discord'
+  discord_chat_channel: 'Canal de chat Discord',
+  empty_aircraft: 'Avion vide',
+  pilot: 'Pilote',
+  passenger: 'Passager',
+  luggage: 'Bagages',
+  fuel: 'Carburant',
+  front_passenger: 'Passager avant',
+  rear_left_passenger: 'Passager arrière gauche',
+  rear_right_passenger: 'Passager arrière droit',
+  additional_fuel: 'Carburant supplémentaire'
 }
