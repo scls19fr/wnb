@@ -30,7 +30,7 @@
             <div v-for="massSlider in currentLoads.filter(x => !!x.mass)" :key="massSlider.designation">
               <div class="q-pa-md">
                 <q-badge color="primary" class="q-pa-sm">
-                  {{massSlider.designation}} {{ massSlider.mass.default }}
+                  {{massSlider.designation}} {{ massSlider.mass.default }} kg
                   &nbsp;
                   <em v-if="massSlider.comment">
                     {{massSlider.comment}}
@@ -51,7 +51,7 @@
             <div v-for="volumeSlider in currentLoads.filter(x => !!x.volume)" :key="volumeSlider.designation">
               <div class="q-pa-md">
                 <q-badge color="primary" class="q-pa-sm">
-                  {{volumeSlider.designation}} {{ volumeSlider.volume.default }}
+                  {{volumeSlider.designation}} {{ volumeSlider.volume.default }} L
                   &nbsp;
                   <em v-if="volumeSlider.comment">
                     {{volumeSlider.comment}}
@@ -73,9 +73,9 @@
         </div>
           <div class="col-12 col-md-6 col-lg-8">
             <div class="q-ma-md">
-            <p class="q-pl-lg" :class="{'bs-outside': !isInside}" v-if="gravityCenter.mass > 0">Mass: {{gravityCenter.mass.toFixed(1)}},
-              Lever Arm: {{gravityCenter.lever_arm.toFixed(3)}},
-              Moment: {{gravityCenter.moment.toFixed(1)}}</p>
+            <p class="q-pl-lg" :class="{'bs-outside': !isInside}" v-if="gravityCenter.mass > 0">mass: {{gravityCenter.mass.toFixed(1)}} kg,
+              lever arm: {{gravityCenter.lever_arm.toFixed(3)}} m,
+              moment: {{gravityCenter.moment.toFixed(1)}} kg.m</p>
             <radar-chart v-if="aircraft" :chartData="chartData" :options="chartOptions" style="max-width: 700px;"/>
             </div>
 
