@@ -39,7 +39,7 @@
     "jest": "^26.0.1",
     "jest-serializer-vue": "^2.0.2",
     "jest-transform-stub": "^2.0.0",
-    "npm": "^6.14.5",
+    "npm": "^6.14.6",
     "promise": "^8.1.0",
     "ts-jest": "^26.0.0",
     "vue-jest": "^3.0.5"
