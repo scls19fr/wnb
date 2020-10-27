@@ -15,5 +15,13 @@ export default {
   weight_and_balance_plot: 'Weight and balance plot',
   docs: 'Docs',
   source_code: 'Source code',
-  discord_chat_channel: 'Discord Chat Channel'
+  discord_chat_channel: 'Discord Chat Channel',
+  empty_aircraft: 'Empty aircraft',
+  pilot: 'Pilot',
+  passenger: 'Passenger',
+  luggage: 'Luggage',
+  fuel: 'Fuel',
+  front_passenger: 'Front passenger',
+  rear_left_passenger: 'Rear left passenger',
+  rear_right_passenger: 'Rear right passenger'
 }

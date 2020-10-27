@@ -30,7 +30,7 @@
             <div v-for="massSlider in currentLoads.filter(x => !!x.mass)" :key="massSlider.designation">
               <div class="q-pa-md">
                 <q-badge color="primary" class="q-pa-sm">
-                  {{massSlider.designation}} {{ massSlider.mass.default }} kg
+                  {{$t(massSlider.designation)}} {{ massSlider.mass.default }} kg
                   &nbsp;
                   <em v-if="massSlider.comment">
                     {{massSlider.comment}}
@@ -51,7 +51,7 @@
             <div v-for="volumeSlider in currentLoads.filter(x => !!x.volume)" :key="volumeSlider.designation">
               <div class="q-pa-md">
                 <q-badge color="primary" class="q-pa-sm">
-                  {{volumeSlider.designation}} {{ volumeSlider.volume.default }} L
+                  {{$t(volumeSlider.designation)}} {{ volumeSlider.volume.default }} L
                   &nbsp;
                   <em v-if="volumeSlider.comment">
                     {{volumeSlider.comment}}
