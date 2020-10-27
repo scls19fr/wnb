@@ -88,10 +88,11 @@
         </div>
           <div class="col-12 col-md-6 col-lg-8">
             <div class="q-ma-md">
-            <p class="q-pl-lg" :class="{'bs-outside': !isInside}" v-if="gravityCenter.mass > 0">
-              <em>{{ $t('mass') }}:</em> {{gravityCenter.mass.toFixed(1)}} kg,
-              <em>{{ $t('lever_arm') }}:</em> {{gravityCenter.lever_arm.toFixed(3)}} m,
-              <em>{{ $t('moment') }}:</em> {{gravityCenter.moment.toFixed(1)}} kg.m</p>
+              <p class="q-pl-lg" :class="{'bs-outside': !isInside}" v-if="gravityCenter.mass > 0">
+                <em>{{ $t('mass') }}:</em> {{gravityCenter.mass.toFixed(1)}} kg ;
+                <em>{{ $t('lever_arm') }}:</em> {{gravityCenter.lever_arm.toFixed(3)}} m ;
+                <em>{{ $t('moment') }}:</em> {{gravityCenter.moment.toFixed(1)}} kg.m
+              </p>
             <radar-chart v-if="aircraft" :chartData="chartData" :options="chartOptions" style="max-width: 700px;"/>
             </div>
 
