@@ -53,15 +53,6 @@
             <q-item-label caption>github.com/scls19fr/wnb/</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item clickable tag="a" target="_blank" href="https://twitter.com/scls19fr">
-          <q-item-section avatar>
-            <q-icon name="rss_feed" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Twitter</q-item-label>
-            <q-item-label caption>@scls19fr</q-item-label>
-          </q-item-section>
-        </q-item>
         <q-item clickable tag="a" target="_blank" href="https://www.facebook.com/sebastien.celles/">
           <q-item-section avatar>
             <q-icon name="public" />
@@ -69,6 +60,15 @@
           <q-item-section>
             <q-item-label>Facebook</q-item-label>
             <q-item-label caption>@sebastien.celles</q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-item clickable tag="a" target="_blank" href="https://twitter.com/scls19fr">
+          <q-item-section avatar>
+            <q-icon name="rss_feed" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Twitter</q-item-label>
+            <q-item-label caption>@scls19fr</q-item-label>
           </q-item-section>
         </q-item>
         <q-item clickable tag="a" target="_blank" href="https://chat.quasar.dev">
