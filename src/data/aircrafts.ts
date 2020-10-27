@@ -2,23 +2,25 @@ import axios from 'axios';
 import yaml from 'js-yaml';
 import {AircraftModel, AircraftApiType} from 'src/models/Aircraft';
 
-const index = 'index.yml';
+const INDEX = 'index.yml';
 
-// export const aircraftDataRepositoryURL = 'https://github.com/scls19fr/wnb-data-acp/';
-// export const aircraftDataRepositoryCaption = 'github.com/scls19fr/wnb-data-acp';
+const BASE_URL ='https://raw.githubusercontent.com/scls19fr/wnb-data-acp/master/data';
+const REPOSITORY_URL = 'https://github.com/scls19fr/wnb-data-acp/';
+const REPOSITORY_CAPTION = 'github.com/scls19fr/wnb-data-acp';
 
-const baseURL ='https://raw.githubusercontent.com/scls19fr/wnb-data-acp/master/data';
 export class Api {
-  public static readonly baseUrl = baseURL;
+  public static readonly baseUrl = BASE_URL;
+  public static readonly repositoryUrl = REPOSITORY_URL;
+  public static readonly repositoryCaption = REPOSITORY_CAPTION;
 
   private static async fetchAirCraftIndex() : Promise<AircraftApiType[]> {
-    const request: any = await axios.get<string>(`${baseURL}/${index}`);
+    const request: any = await axios.get<string>(`${BASE_URL}/${INDEX}`);
     const response: AircraftApiType[] = [];
     return request && request.data ? [yaml.safeLoad(request.data)] : response;
   }
 
   private static async fetchAirCraft(aircraft: string) : Promise<AircraftModel[]> {
-    const request: any = await axios.get<string>(`${baseURL}/${Api.addYmlExtension(aircraft)}`);
+    const request: any = await axios.get<string>(`${BASE_URL}/${Api.addYmlExtension(aircraft)}`);
     const response: AircraftModel[] = [];
     return request && request.data ? [yaml.safeLoad(request.data)] : response;
   }
