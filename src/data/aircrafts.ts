@@ -5,13 +5,11 @@ import {AircraftModel, AircraftApiType} from 'src/models/Aircraft';
 const INDEX = 'index.yml';
 
 const BASE_URL ='https://raw.githubusercontent.com/scls19fr/wnb-data-acp/master/data';
-const REPOSITORY_URL = 'https://github.com/scls19fr/wnb-data-acp/';
-const REPOSITORY_CAPTION = 'github.com/scls19fr/wnb-data-acp';
+export const REPOSITORY_URL = 'https://github.com/scls19fr/wnb-data-acp/';
+export const REPOSITORY_CAPTION = 'github.com/scls19fr/wnb-data-acp';
 
 export class Api {
   public static readonly baseUrl = BASE_URL;
-  public static readonly repositoryUrl = REPOSITORY_URL;
-  public static readonly repositoryCaption = REPOSITORY_CAPTION;
 
   private static async fetchAirCraftIndex() : Promise<AircraftApiType[]> {
     const request: any = await axios.get<string>(`${BASE_URL}/${INDEX}`);

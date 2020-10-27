@@ -44,13 +44,13 @@
             <q-item-label caption>wnb/wiki</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item clickable tag="a" target="_blank" href="https://github.com/scls19fr/wnb-data-acp/">
+        <q-item clickable tag="a" target="_blank" :href=repositoryUrl>
           <q-item-section avatar>
             <q-icon name="code" />
           </q-item-section>
           <q-item-section>
             <q-item-label>{{ $t('aircraft_data') }}</q-item-label>
-            <q-item-label caption>github.com/scls19fr/wnb-data-acp</q-item-label>
+            <q-item-label caption>{{ repositoryCaption }}</q-item-label>
           </q-item-section>
         </q-item>
         <q-item clickable tag="a" target="_blank" href="https://github.com/scls19fr/wnb/">
@@ -109,13 +109,16 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { REPOSITORY_URL, REPOSITORY_CAPTION } from 'src/data/aircrafts'
 
 export default Vue.extend({
   name: 'MyLayout',
 
   data () {
     return {
-      leftDrawerOpen: false
+      leftDrawerOpen: false,
+      repositoryUrl: REPOSITORY_URL,
+      repositoryCaption: REPOSITORY_CAPTION
     }
   }
 })
