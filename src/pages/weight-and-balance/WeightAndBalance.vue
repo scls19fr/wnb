@@ -1,7 +1,7 @@
 <template>
   <q-page padding>
       <div class="q-pa-md">
-        <q-btn-dropdown color="secondary" label="Select Aircraft">
+        <q-btn-dropdown color="secondary" :label="$t('select_aircraft')">
           <q-list>
             <q-item v-for="aircraft in aircraftList"
                     :key="aircraft"
@@ -73,9 +73,9 @@
         </div>
           <div class="col-12 col-md-6 col-lg-8">
             <div class="q-ma-md">
-            <p class="q-pl-lg" :class="{'bs-outside': !isInside}" v-if="gravityCenter.mass > 0">mass: {{gravityCenter.mass.toFixed(1)}} kg,
-              lever arm: {{gravityCenter.lever_arm.toFixed(3)}} m,
-              moment: {{gravityCenter.moment.toFixed(1)}} kg.m</p>
+            <p class="q-pl-lg" :class="{'bs-outside': !isInside}" v-if="gravityCenter.mass > 0">{{ $t('mass') }}: {{gravityCenter.mass.toFixed(1)}} kg,
+              {{ $t('lever_arm') }}: {{gravityCenter.lever_arm.toFixed(3)}} m,
+              {{ $t('moment') }}: {{gravityCenter.moment.toFixed(1)}} kg.m</p>
             <radar-chart v-if="aircraft" :chartData="chartData" :options="chartOptions" style="max-width: 700px;"/>
             </div>
 
