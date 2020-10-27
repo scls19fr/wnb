@@ -14,6 +14,7 @@ export default {
   gravity_center: 'Centre de Gravité',
   weight_and_balance_plot: 'Tracé masse et centrage',
   docs: 'Documentation',
+  aircraft_data: 'Données aéronefs',
   source_code: 'Code source',
   discord_chat_channel: 'Canal de chat Discord',
   empty_aircraft: 'Avion vide',

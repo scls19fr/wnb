@@ -44,13 +44,22 @@
             <q-item-label caption>wnb/wiki</q-item-label>
           </q-item-section>
         </q-item>
+        <q-item clickable tag="a" target="_blank" href="https://github.com/scls19fr/wnb-data-acp/">
+          <q-item-section avatar>
+            <q-icon name="code" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>{{ $t('aircraft_data') }}</q-item-label>
+            <q-item-label caption>github.com/scls19fr/wnb-data-acp</q-item-label>
+          </q-item-section>
+        </q-item>
         <q-item clickable tag="a" target="_blank" href="https://github.com/scls19fr/wnb/">
           <q-item-section avatar>
             <q-icon name="code" />
           </q-item-section>
           <q-item-section>
             <q-item-label>{{ $t('source_code') }}</q-item-label>
-            <q-item-label caption>github.com/scls19fr/wnb/</q-item-label>
+            <q-item-label caption>github.com/scls19fr/wnb</q-item-label>
           </q-item-section>
         </q-item>
         <q-item clickable tag="a" target="_blank" href="https://www.facebook.com/sebastien.celles/">

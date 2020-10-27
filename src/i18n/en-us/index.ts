@@ -14,6 +14,7 @@ export default {
   gravity_center: 'Gravity Center',
   weight_and_balance_plot: 'Weight and balance plot',
   docs: 'Docs',
+  aircraft_data: 'Aircraft data',
   source_code: 'Source code',
   discord_chat_channel: 'Discord Chat Channel',
   empty_aircraft: 'Empty aircraft',

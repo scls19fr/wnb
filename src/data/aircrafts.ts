@@ -4,6 +4,9 @@ import {AircraftModel, AircraftApiType} from 'src/models/Aircraft';
 
 const index = 'index.yml';
 
+// export const aircraftDataRepositoryURL = 'https://github.com/scls19fr/wnb-data-acp/';
+// export const aircraftDataRepositoryCaption = 'github.com/scls19fr/wnb-data-acp';
+
 const baseURL ='https://raw.githubusercontent.com/scls19fr/wnb-data-acp/master/data';
 export class Api {
   public static readonly baseUrl = baseURL;
