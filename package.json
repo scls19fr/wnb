@@ -15,7 +15,7 @@
     "@quasar/extras": "^1.0.0",
     "@types/js-yaml": "^3.12.4",
     "axios": "^0.19.2",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "js-yaml": "^3.14.0",
     "point-in-polygon": "^1.0.1",
     "quasar": "^1.9.15",
