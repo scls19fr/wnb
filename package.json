@@ -35,7 +35,7 @@
     "@typescript-eslint/parser": "^2.22.0",
     "eslint": "^6.8.0",
     "eslint-plugin-vue": "^6.2.1",
-    "i": "^0.3.6",
+    "i": "^0.3.7",
     "jest": "^26.0.1",
     "jest-serializer-vue": "^2.0.2",
     "jest-transform-stub": "^2.0.0",
